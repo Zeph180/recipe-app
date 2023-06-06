@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class RecipeFood < ApplicationRecord
   validates :quantity, presence: true
 
