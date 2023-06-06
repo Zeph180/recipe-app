@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InventoryFood < ApplicationRecord
   validates :quantity, presence: true
 
