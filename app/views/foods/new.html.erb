@@ -1,20 +1,25 @@
-<div class="container">
-  <h2 class="text-center">Add food</h2>
-  <div class="form">
-    <%= form_with model: @food, url: { action: "create" }, method: :post, local: true, scope: :food do |f| %>
-    <div class="mb-3">
-      <%= f.label :name, class: 'form-label'%><br />
-      <%= f.text_field :name,  class: "form-control" %>
-    </div>
-    <div class="mb-3">
-    <%= f.label :measurement_unit, class: 'form-label'%>
-      <%= f.text_area :measurement_unit,  class: "form-control" , placeholder:'grams'%>
-    </div>
-    <div class="mb-3">
-    <%= f.label :price, class: 'form-label'%>
-      <%= f.number_field :price,  class: "form-control" , placeholder:'$10'%>
-    </div>
-      <%= f.submit "Create Food" ,class: 'btn btn-submit btn-primary'%>
-    <% end %>
-</div>
+<div class="form-container">
+
+<h1>add new food</h1>
+
+<%= form_with model: @food, method: :post, local: true, scope: :food do |f| %>
+
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'input-field'%>
+  </div>
+
+  <div>
+    <%= f.label :measurement_unit %><br>
+    <%= f.text_field :measurement_unit, class: 'input-field' %>
+  </div>
+
+  <div>
+    <%= f.label :price %><br>
+    <%= f.text_field :price, class: 'input-field' %>
+  </div>
+
+  <%= f.submit "Add food",  class: "form-btn"%>
+
+<% end %>
 </div>
