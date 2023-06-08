@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  #tests go here
-   subject do
+  # tests go here
+  subject do
     Food.new(name: 'appple', measurement_unit: 'grams', price: 1, created_at: nil,
              updated_at: nil, user_id: nil)
   end
@@ -32,7 +32,6 @@ RSpec.describe Food, type: :model do
     it 'has many posts' do
       food = Food.reflect_on_association(:user)
       expect(food.macro).to eq(:belongs_to)
-    end   
+    end
   end
-
 end

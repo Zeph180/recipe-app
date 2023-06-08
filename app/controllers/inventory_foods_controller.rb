@@ -12,7 +12,7 @@ class InventoryFoodsController < ApplicationController
     else
       flash[:alert] = 'Inventory food not saved'
     end
-    redirect_to user_inventory_path(current_user,params[:inventory_id])
+    redirect_to user_inventory_path(current_user, params[:inventory_id])
   end
 
   def destroy
@@ -20,8 +20,7 @@ class InventoryFoodsController < ApplicationController
     @inventory_food = InventoryFood.find(params[:id])
     @inventory_food.destroy
 
-    redirect_to user_inventory_path(@user,@inventory.id), notice: 'Food was successfully deleted'
-    
+    redirect_to user_inventory_path(@user, @inventory.id), notice: 'Food was successfully deleted'
   end
 
   def new
@@ -30,16 +29,13 @@ class InventoryFoodsController < ApplicationController
   end
 
   private
+
   def set_user
-    @user=User.includes(:inventories).find(params[:user_id])
+    @user = User.includes(:inventories).find(params[:user_id])
   end
 
   def set_inventory
-    @inventory=@user.inventories.find(params[:inventory_id])
-  end
-
-  def set_inventory
-    @inventory=@user.inventories.find(params[:inventory_id])
+    @inventory = @user.inventories.find(params[:inventory_id])
   end
 
   def inventory_food_params

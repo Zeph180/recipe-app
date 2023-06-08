@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe InventoryFood, type: :model do
-  #tests go here
+  # tests go here
   subject do
     InventoryFood.new(quantity: 1, created_at: nil,
-             updated_at: nil, inventory_id: nil,food_id: nil)
+                      updated_at: nil, inventory_id: nil, food_id: nil)
   end
 
   before { subject.save }
@@ -22,13 +22,11 @@ RSpec.describe InventoryFood, type: :model do
     it 'belongs to food' do
       inventory_food = InventoryFood.reflect_on_association(:food)
       expect(inventory_food.macro).to eq(:belongs_to)
-    end   
+    end
 
     it 'belongs to inventory' do
       inventory_food = InventoryFood.reflect_on_association(:inventory)
       expect(inventory_food.macro).to eq(:belongs_to)
-    end  
-     
+    end
   end
-
 end

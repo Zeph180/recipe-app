@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Foods', type: :request do
-
   include Devise::Test::IntegrationHelpers
 
   let(:user) { User.create!(name: 'apple', email: 'gramsy@example.mail', password: '123456') }
-  let(:food) { Food.create!(name: 'apple', measurement_unit: 'grams', price: 1, user: user) }
+  let(:food) { Food.create!(name: 'apple', measurement_unit: 'grams', price: 1, user:) }
 
   before do
     sign_in user
@@ -28,7 +27,7 @@ RSpec.describe 'Foods', type: :request do
       expect(response.body).to include('<h1 class="text-center">All food</h1>')
     end
   end
-   describe 'GET /new' do
+  describe 'GET /new' do
     it 'should successfully request for new food form' do
       get "/users/#{user.id}/foods/new"
       expect(response).to be_successful
@@ -39,8 +38,5 @@ RSpec.describe 'Foods', type: :request do
       get "/users/#{user.id}/foods/new"
       expect(response).to render_template(:new)
     end
-
-   
   end
 end
-
