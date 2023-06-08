@@ -1,33 +1,33 @@
-<div class="food-container">
-
-  <div class="btn-div">
-    <%= link_to "Add Food", new_food_path, class: "btn" %>
+<div class="container">
+  <h1 class="text-center">All food</h1>
+  <div class="d-flex align-items-center justify-content-end">
+    <%=link_to "Add food", new_user_food_path(current_user),class: 'active' %>
   </div>
-  <% if @foods.empty? %>
-    <h2> User has no food on the list </h2>
-  <% else%>
-
-   <table class="food-table">
+  <div class="container p-2">
+    <%if @foods.empty?%>
+    <h1 class="text-center">No food to display</h1>
+    <%else%>
+     <table class="table">
       <thead>
-        <th>Food</th>
-        <th>Measurement unit</th>
-        <th>Unit price</th>
-        <th>Actions</th>
-
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Measurement unit</th>
+          <th scope="col">Price</th>
+          <th scope="col">Actions</th>
+        </tr>
       </thead>
-  
-
-<tbody>
-<%  @foods.each do| food | %>
-    <tr>
-      <td><%= food.name %></td>
-      <td><%= food.measurement_unit %></td>
-      <td><%= food.price %></td>
-      <td><%= button_to "Delete", food_path(food.id), method: :delete %></td>
-    </tr>
-   <% end %>
-</tbody>
-</table>
-  
-  <% end %>
+      <tbody>
+         <%@foods.each do|food|%>
+            <tr>
+            <th scope="row"><%=food.name%></th>
+            <td><%=food.measurement_unit%></td>
+            <td>$<%=food.price%></td></td>
+            <td><%= button_to 'Remove', user_food_path(food.user,food.id), method: :delete, data: { turbo_method: :delete } ,class:'link btn text-primary'%></td></td>
+            </tr>
+         
+          <%end%> 
+      </tbody>
+    </table>
+ <%end%>
+  </div>
 </div>

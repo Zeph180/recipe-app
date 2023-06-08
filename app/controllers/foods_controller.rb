@@ -1,36 +1,34 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @foods = Food.all
+    @foods = current_user.foods
   end
 
   def new
     @food = Food.new
-    @user = current_user
   end
 
   def create
-    @user = current_user
-    @food = Food.new(params.require(:food).permit(:name, :measurement_unit, :price))
-    respond_to do |format|
-      if @food.save
-        format.html { redirect_to foods_path, notice: 'food has been successfully save' }
-        format.json { render :show, status: :created, location: @food }
+    @food = current_user.foods.new(food_params)
 
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @food.errors, status: :unprocessable_entity }
-
-      end
+    if @food.save
+      flash[:notice] = 'Food added successfully'
+      redirect_to user_foods_path(current_user)
+    else
+      render :new
     end
   end
 
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
+    redirect_to user_foods_path(current_user), notice: 'Food deleted successfully'
+  end
 
-    respond_to do |format|
-      format.html { redirect_to foods_path, notice: 'foor was successfully deleted' }
-      format.json { head :no_content }
-    end
+  private
+
+  def food_params
+    params.require(:food).permit(:name, :measurement_unit, :price)
   end
 end
