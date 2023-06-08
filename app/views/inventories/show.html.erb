@@ -1,23 +1,28 @@
-<div>
-  <h1>
-    Inventory <%= @inventory.id %>
-  </h1>
-  <%= button_to 'Add food', foods_path(), method: :create %>
-  <hr />
-  <table>
+<h1 class="title"><%= @inventory.name %></h1>
+<div class="buttons">
+  <%= link_to "Add Food", new_inventory_inventory_food_path(@inventory), class:"add_ingredient" %>
+</div>
+<hr>
+<div class="food-container">
+  <table class="food-table">
     <thead>
-      <td>Food</td>
-      <td>Quantity</td>
-      <td>Action</td>
+      <tr >
+        <th class="col">Food</th>
+        <th class="col">Quantity</th>
+        <th class="col">Actions</th>
+      </tr>
     </thead>
-    <% @inventory_foods.each do |inv_food| %>
-      <tr>
-        <td><%= inv_food.name %></td>
-        <td><%= inv_food.quantity %></td>
-        <td>
-          <% if can? :destroy, inv_food %>
-          <%= button_to 'Remove', inventory_food_path(inv_food), method: :delete, data: { confirm: 'Are you sure?'} %>
+    <tbody>
+
+    <% @inventory.inventory_foods.includes([:food]).each do |food| %>
+      <tr >
+        <td><%= food.food.name %></td>
+        <td><%= "#{food.quantity}" "#{food.food.measurement_unit}" %></td>
+        <td class="buttons">
+          <%= button_to "Remove", inventory_inventory_food_path(@inventory, food), method: :delete , class:"delete" %>
         </td>
       </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>

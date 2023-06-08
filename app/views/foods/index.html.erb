@@ -1,0 +1,33 @@
+<div class="food-container">
+
+  <div class="btn-div">
+    <%= link_to "Add Food", new_food_path, class: "btn" %>
+  </div>
+  <% if @foods.empty? %>
+    <h2> User has no food on the list </h2>
+  <% else%>
+
+   <table class="food-table">
+      <thead>
+        <th>Food</th>
+        <th>Measurement unit</th>
+        <th>Unit price</th>
+        <th>Actions</th>
+
+      </thead>
+  
+
+<tbody>
+<%  @foods.each do| food | %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.measurement_unit %></td>
+      <td><%= food.price %></td>
+      <td><%= button_to "Delete", food_path(food.id), method: :delete %></td>
+    </tr>
+   <% end %>
+</tbody>
+</table>
+  
+  <% end %>
+</div>
