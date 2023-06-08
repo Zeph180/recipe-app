@@ -1,8 +1,5 @@
-
 require 'rails_helper'
 # ...
-
-# rubocop:enable Layout/EndOfLine
 
 # Specs in this file have access to a helper object that includes
 # the FoodHelper. For example:
