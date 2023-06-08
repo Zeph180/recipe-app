@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="text-center"><%=@inventory.name%></h1>
+  <div class="d-flex align-items-center justify-content-end">
+     <%=link_to "Add food", new_user_inventory_inventory_food_path(user_id: @inventory.user.id, inventory_id: @inventory.id),class: 'active' %>
+  </div>
+<%if @inventory.inventory_foods.empty?%>
+<h2 class="text-center">This inventory has no food</h2>
+<%else%>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @inventory.inventory_foods.includes([:food]).each do |food| %>
+      <tr >
+        <th><%= food.food.name %></th>
+        <td><%= "#{food.quantity}" "#{food.food.measurement_unit}" %></td>
+        <td >
+          <%= button_to "Remove", user_inventory_inventory_food_path(user_id: current_user.id, inventory_id: @inventory.id, id: food.id), method: :delete , class:"btn text-danger" %>
+        </td>
+      </tr>
+      <% end %> 
+      </tbody>
+    </table>
+    <%end%>
+</div>

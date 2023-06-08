@@ -1,0 +1,16 @@
+<div class="container">
+  <h2 class="text-center">Create Inventory</h2>
+  <div class="form">
+    <%= form_with model: @inventory, url: user_inventories_path, method: :post, local: true, scope: :inventory do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, class: 'form-label'%><br />
+      <%= f.text_field :name,  class: "form-control" %>
+    </div>
+    <div class="mb-3">
+    <%= f.label :description, class: 'form-label'%>
+      <%= f.text_area :description,  class: "form-control" , placeholder:'description'%>
+    </div>
+      <%= f.submit "Create post" ,class: 'btn btn-submit btn-primary'%>
+    <% end %>
+</div>
+</div>
