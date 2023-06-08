@@ -21,7 +21,7 @@
             <tr>
             <th scope="row"><%=food.name%></th>
             <td><%=food.measurement_unit%></td>
-            <td><%=food.price%></td></td>
+            <td>$<%=food.price%></td></td>
             <td><%= button_to 'Remove', user_food_path(food.user,food.id), method: :delete, data: { turbo_method: :delete } ,class:'link btn text-primary'%></td></td>
             </tr>
          
