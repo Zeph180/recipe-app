@@ -1,0 +1,20 @@
+
+<div class="overlay-container">
+<div class="popup"><i class='close bx bx-x'></i></div>
+
+  <h2>Generate shopping list</h2>
+  <h3> Choose an inventory to use </h3>
+  <div>
+    <%= form_with url: shop_lists_path, method: :get, local: true do |f| %>
+      <div>
+        
+        <%= f.select :inventory, @inventories.map {|t| [t.name, t.id] }, {}, class: "input-field" %>
+        <%= f.hidden_field :recipe, value: @recipe.name  %>
+      </div>
+      <div class>
+        <%= f.submit "Generate", class: "generate-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

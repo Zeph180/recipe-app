@@ -1,0 +1,27 @@
+<div class="form-container">
+<h1>New Recipe</h1>
+<%= form_with url: "/recipes", method: :post, scope: :recipe, class:"form" do |form| %>
+  <div class="field">
+    <%= form.label :Name%> <br>
+    <%= form.text_field :name, class: 'input-field'%>
+  </div>
+  <div class="field">
+    <%= form.label :Preparation_time%> <br>
+    <%= form.text_field :preparation_time, class: 'input-field'%>
+  </div>
+  <div class="field">
+    <%= form.label :Cooking_time%> <br>
+    <%= form.text_field :cooking_time, class: 'input-field'%>
+  </div>
+  <div class="field">
+    <%= form.label :Description%> <br>
+    <%= form.text_area :description, class: 'input-field'%>
+  </div>
+  <div class="field">
+    <%= form.label :public %>
+    <%= form.check_box :public %>
+  </div>
+  <div class="actions"><%= form.submit %></div>
+<%end%>
+
+</div>

@@ -1,0 +1,33 @@
+<div class="food-container">
+
+ <h1> Shopping List</h1>
+    <div> 
+        <div class="flex-div">
+            <span>Amount of food to buy: <%= @inventories.length %> </span>
+            <span>Recipe: <%= @recipe %> </span>
+        </div>
+        <div class="flex-div">
+            <span>Total Value of food needed: $ <%= @total %></span>
+            <span>inventory: <%=@inventory.name %>  <%inventory_path(@inventory.id) %></span>
+
+        </div>
+    </div>
+   <table class="food-table">
+      <thead>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </thead>
+      <tbody>
+        <% @inventories.each do |inventory| %>
+            <tr>
+                <td><%= inventory.food.name %></td>
+                <td><%= inventory.quantity %></td>
+                <td><%= inventory.food.price %></td>
+            </tr>
+        <% end %>
+    </tbody>
+    </table>
+  
+
+</div>
