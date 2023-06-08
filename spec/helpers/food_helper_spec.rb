@@ -1,4 +1,3 @@
-# rubocop:disable Layout/EndOfLine
 
 require 'rails_helper'
 # ...
