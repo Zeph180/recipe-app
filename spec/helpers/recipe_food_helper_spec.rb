@@ -11,5 +11,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe RecipeFoodHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'shoul be a place holder test' do
+    expect('hello').to eq('hello')
+  end
 end

@@ -11,11 +11,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe RecipesHelper, type: :helper do
-<<<<<<< HEAD
-   it 'shoul be a place holder test' do
+  it 'shoul be a place holder test' do
     expect('hello').to eq('hello')
   end
-=======
-  pending "add some examples to (or delete) #{__FILE__}"
->>>>>>> 2996530d70fe1681f388991bb27759d02e82a4aa
 end
