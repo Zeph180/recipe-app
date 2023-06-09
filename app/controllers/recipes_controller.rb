@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
-<<<<<<< HEAD
-=======
+
   def index
     @recipes = current_user.recipes.all
   end
@@ -42,5 +41,4 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
->>>>>>> 2996530d70fe1681f388991bb27759d02e82a4aa
 end
