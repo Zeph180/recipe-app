@@ -107,6 +107,13 @@ To run the project, execute the following command:
 - Twitter: [Twitter](https://twitter.com/ambrose_kibet)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ambrose-kibet/)
 
+👤 **Kigozi Joseph**
+
+- GitHub: [Github](https://github.com/zeph180)
+- Twitter: [Twitter](https://twitter.com/richards_zeph)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kigozi-joseph-suubi)
+
+
 
 👤 **Habtamu**
 
