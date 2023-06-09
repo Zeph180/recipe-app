@@ -24,10 +24,10 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Some _blog <a name="about-project"></a>
+# 📖 Recipe-app <a name="about-project"></a>
 
 
-**Some _blog** is an ongoing project which when finished will be a ruby on rails application which allows users to make posts, comments and leave likes, while saving all of this data to a database server.
+**Recipe-app** The Recipe app keeps track of all your recipes, ingredients, and inventory. It allows user to save ingredients to a recipe, keep track of stock, create recipes, and generate a shopping list based on the difference between inventory and recipe requirements. To allow sharing the recipe, the user or creater can indicate whether it is private or public..
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -51,7 +51,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-- Some _blog app
+- Create food
+- Create Inventory
+- Create recipe
+- generate shopping list 
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,6 +89,8 @@ Install this project with:
 To run the project, execute the following command:
 
 ```
+  rails db:create
+  rails db:migrate
 
   rails server
 ```
@@ -101,10 +107,6 @@ To run the project, execute the following command:
 - Twitter: [Twitter](https://twitter.com/ambrose_kibet)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ambrose-kibet/)
 
-👤 **Leslie Aine**
-
-- GitHub: [@LeslieAine](https://github.com/LeslieAine)
-- LinkedIn: [LeslieAine](https://linkedin.com/in/LeslieAine)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,7 +114,7 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Add the rest of the necessary features for a functional blog.
+- Add the rest of the nmore styling
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
