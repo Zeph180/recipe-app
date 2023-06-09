@@ -1,0 +1,26 @@
+<div class="publics">
+    <ul class="publics-list">
+        <% @publics.each do |public|%>
+            <li>
+                <div class="label">
+                    <h2><%=link_to recipe_path(public.id), :class => 'title_anchor' do%><%= public.name%><%end%>
+                    </h2>
+                    <p> By: <%= public.user.email %></p>
+                </div>
+                <div class="details">
+                    <p> Total food items : <%= public.recipe_foods.length %></p>
+                    <p> Total price: --</p>
+                    <% if can? :destroy, @recipe %>
+                      <p>Not Authorised</p>
+                    <% else %> 
+                      <% if current_user.email == public.user.email%>
+                        <%= button_to 'Remove', recipe_path(public.id), method: :delete, class: "delete_btn" %>
+                      <% else %>
+                        <button disabled>Remove</button>
+                      <% end %>
+                    <% end %>
+                </div>
+            </li>
+        <%end%>
+    <ul>
+</div>

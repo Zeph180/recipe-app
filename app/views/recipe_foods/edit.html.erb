@@ -1,0 +1,9 @@
+<h2 class="form-title">Edit quantity of: <%= @recipe_food.food.name %></h2>
+
+<%= form_with model: @recipe_food, url: recipe_recipe_food_path, method: :patch, class: "edit-form" do |form| %>
+  <div class="form-group">
+    <%= form.label :quantity, class: "form-label" %>
+    <%= form.number_field :quantity, class: "form-input" %>
+  </div>
+  <%= form.submit "Update", class: "form-submit" %>
+<% end %>
