@@ -23,7 +23,7 @@
             <tr>
                 <td><%= inventory.food.name %></td>
                 <td><%= inventory.quantity %></td>
-                <td><%= inventory.food.price %></td>
+                <td><%= inventory.food.price * inventory.quantity %></td>
             </tr>
         <% end %>
     </tbody>
