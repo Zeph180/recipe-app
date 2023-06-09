@@ -4,7 +4,7 @@
     <div> 
         <div class="flex-div">
             <span>Amount of food to buy: <%= @inventories.length %> </span>
-            <span>Recipe: <%= @recipe %> </span>
+            <span>Recipe: <%= @recipe.name %> </span>
         </div>
         <div class="flex-div">
             <span>Total Value of food needed: $ <%= @total %></span>
@@ -12,11 +12,11 @@
 
         </div>
     </div>
-   <table class="food-table">
+   <table class="table">
       <thead>
-        <th>Food</th>
-        <th>Quantity</th>
-        <th>Price</th>
+        <th  class="col">Food</th>
+        <th class="col">Quantity</th>
+        <th class="col">Price</th>
       </thead>
       <tbody>
         <% @inventories.each do |inventory| %>

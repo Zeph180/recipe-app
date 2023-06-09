@@ -9,7 +9,7 @@
       <div>
         
         <%= f.select :inventory, @inventories.map {|t| [t.name, t.id] }, {}, class: "input-field" %>
-        <%= f.hidden_field :recipe, value: @recipe.name  %>
+        <%= f.hidden_field :recipe, value: recipe.id  %>
       </div>
       <div class>
         <%= f.submit "Generate", class: "generate-btn" %>

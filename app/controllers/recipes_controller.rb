@@ -19,14 +19,26 @@ class RecipesController < ApplicationController
   end
 
   def shop_lists
-    @recipe = params[:recipe]
-    @recipesid = Recipe.all.where(name: @recipe).ids.join
-    @recipe_item = Recipe.find_by(id: @recipesid)
+    @foods = RecipeFood.includes(:food).all.where(recipe_id: params[:recipe])
+    inv_foods = InventoryFood.includes(:food).all.where(inventory_id: params[:inventory])
+    @miss_foods = []
+    @foods.each do |food|
+      food_in_inv = inv_foods.find { |i| i.food.id == food.food.id }
+      if food_in_inv.present? && food_in_inv.quantity < food.quantity
+        food_in_inv.quantity = food.quantity - food_in_inv.quantity
+        @miss_foods << food_in_inv
+      else
+        @miss_foods << food
+      end
+    end
+    @recipe = Recipe.find(params[:recipe])
     @inventory = Inventory.find(params[:inventory])
-    @inventories = @inventory.inventory_foods
-    @totalrecipe = @recipe_item.recipe_foods.map { |recipe| recipe.food.price * recipe.quantity }.sum
-    @totalinventory = @inventories.map { |inventory| inventory.food.price * inventory.quantity }.sum
-    @total = @totalrecipe - @totalinventory
+    @inventories = @miss_foods
+    sum = 0
+    @inventories.each do |miss_food|
+      sum += miss_food.quantity * miss_food.food.price
+    end
+    @total = sum
   end
 
   def destroy
