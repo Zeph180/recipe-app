@@ -1,0 +1,70 @@
+<div class="recipe-container">
+<h1 class="title"><%= @recipe.name %></h1>
+<div class="times_container">
+  <div class="times">
+    <p>Preparation time: <%= @recipe.preparation_time%></p>
+    <p>Cooking time: <%= @recipe.cooking_time%></p>
+  </div>
+  <div class="toggle">
+    <% if @recipe.public %>
+      <label for="check1">Public</label>
+    <% else %>
+      <label for="check2">Private</label>
+    <% end %> 
+  </div>
+</div>
+<div class="description">
+  <p><%= @recipe.description %></p>
+</div>
+<div class="buttons">
+<button class="open">Generate Shopping List</button>
+
+ <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class:"add_ingredient" %>
+</div>
+<hr>
+<div class="food-container">
+  <table class="food-table">
+    <thead>
+      <tr >
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+   
+      <% if @recipe.recipe_foods.empty? %>
+      <h2> Add ingredients </h2>
+      <% else %>
+       <tbody>
+    <% @recipe.recipe_foods.includes([:food]).each do |food| %>
+      <tr >
+        <td><%= food.food.name %></td>
+        <td><%= "#{food.quantity}" %></td>
+        <td><%= "#{food.food.price}" %></td>
+
+        <td class="buttons">
+          <%
+=begin%>
+ <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, food), class:"modify"  %> 
+<%
+=end%>
+          <%= button_to "Delete", recipe_recipe_food_path(@recipe, food), method: :delete , class:"delete" %>
+        </td>
+
+      </tr>
+      <% end %>
+    </tbody>
+    <% end %>
+  </table>
+
+</div>
+
+
+
+<div class="overlay">
+<%= render "overlay" %>
+</div>
+
+</div>
+

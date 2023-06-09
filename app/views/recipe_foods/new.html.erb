@@ -1,0 +1,28 @@
+<h1>Add Food to Recipe</h1>
+
+<div class="column col-center">
+  <%= form_with model: @recipe_food, url: recipe_recipe_foods_path(params[:recipe_id]), scope: :recipe_food, class: "recipe-food-form" do |form| %>
+    <div class="form-group">
+      <div class="flex">
+        <div class="field">
+          <%= form.label :food, class: "form-label" %>
+          <br/>
+          <%= form.select :food_id, @foods.map { |t| [t.name, t.id] }, {}, class: "input-field" %>
+        </div>
+        <div class="field">
+          <%= form.label :quantity, class: "form-label" %>
+          <br/>
+          <%= form.number_field :quantity, step: 1, placeholder: "Quantity", required: true, class: "input-field" %>
+        </div>
+      </div>
+      <div class="field">
+        <%= form.label :value, class: "form-label" %>
+        <br/>
+        <%= form.number_field :value, step: 1, placeholder: "Cost", required: true, class: "input-field" %>
+      </div>
+      <div class="actions">
+        <%= form.submit "Add", class: "btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

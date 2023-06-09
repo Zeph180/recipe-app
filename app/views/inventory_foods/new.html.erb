@@ -1,0 +1,16 @@
+<div class="container">
+  <h2 class="text-center">Add food to Inventory</h2>
+  <div class="form">
+    <%= form_with(model: @inventory_food, url: user_inventory_inventory_foods_path(user_id: @user.id, inventory_id: @inventory.id), method: :post,local: true, scope: :inventory_food) do |f| %>
+    <div class="mb-3">
+      <%= f.label :quantity, class: 'form-label'%>
+      <%= f.number_field :quantity,  class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :Add_food, class: 'form-label' %>
+      <%= f.collection_select :food_id, Food.all , :id, :name, {prompt: "Select food"}, {class: "form-select mb-3"} %>
+    </div>
+      <%= f.submit "Add food" ,class: 'btn btn-submit btn-primary'%>
+    <% end %>
+</div>
+</div>
