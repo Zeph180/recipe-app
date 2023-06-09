@@ -18,15 +18,22 @@
 
     <div class="navbar">
       <div class="navbar_container">
+       <%if user_signed_in?%>
         <div class="navbar_logo">
           <a href="/">RecipeApp</a>
         </div>
         <div class="navbar_links">
+         
           <a href="/recipes">Recipes</a>
-          <a href="/inventories">Inventories</a>
+          
+          <%= link_to "Inventories", user_inventories_path(current_user) %>
+          
           <a href="/publics">Public Recipes</a>
+          
         </div>
+        <%end%>
       </div>
+  
       <div class="session">
         <%if user_signed_in?%>
           <p class="user_email"><%= current_user.email %></p>
