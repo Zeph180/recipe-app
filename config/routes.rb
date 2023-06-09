@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   resources :recipes, except: :update do
     resources :recipe_foods, only: [:create, :destroy, :edit, :new, :update]
   end
+
+  get 'shop_lists', to: "recipes#shop_lists"
+
 end

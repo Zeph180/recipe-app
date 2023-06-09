@@ -1,6 +1,7 @@
 <div class="new_recipe">
-  <%= link_to "Create new recipe", "/recipes/new" %>
+  <%= link_to "Create new recipe", "/recipes/new", class: "btn-primary" %>
 </div>
+
 <div class="recipes_container">
   <% if @recipes.empty? %>
     <h2>Please create a recipe</h2>
