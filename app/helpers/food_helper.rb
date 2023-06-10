@@ -1,0 +1,3 @@
+module FoodHelper
+  # ...
+end

@@ -1,0 +1,20 @@
+<div class="container">
+  <h2 class="text-center">Add food</h2>
+  <div class="form">
+    <%= form_with model: @food, url: { action: "create" }, method: :post, local: true, scope: :food do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, class: 'form-label'%><br />
+      <%= f.text_field :name,  class: "form-control" %>
+    </div>
+    <div class="mb-3">
+    <%= f.label :measurement_unit, class: 'form-label'%>
+      <%= f.text_area :measurement_unit,  class: "form-control" , placeholder:'grams'%>
+    </div>
+    <div class="mb-3">
+    <%= f.label :price, class: 'form-label'%>
+      <%= f.number_field :price,  class: "form-control" , placeholder:'$10'%>
+    </div>
+      <%= f.submit "Create Food" ,class: 'btn btn-submit btn-primary'%>
+    <% end %>
+</div>
+</div>

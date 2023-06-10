@@ -1,0 +1,174 @@
+/* app/assets/stylesheets/styles.css */
+
+.navbar {
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+.navbar_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar_logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar_links a {
+  margin-right: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.session {
+  margin-top: 10px;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.edit-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-submit {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-submit:hover {
+  background-color: #0056b3;
+}
+
+.new_recipe {
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.recipes_container {
+  margin-top: 20px;
+}
+
+.recipe_container {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+}
+
+.title_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+.title_anchor {
+  text-decoration: none;
+  color: #000;
+}
+
+.delete_btn {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete_btn:hover {
+  background-color: #c82333;
+}
+
+.description_container {
+  margin: 10px 20px;
+}
+
+p {
+  margin: 0;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}

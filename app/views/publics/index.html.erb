@@ -1,0 +1,34 @@
+<div class="publics container">
+    <ul class="publics-list container p-2">
+        <% @publics.each do |public|%>
+            <li class="row align-items-center">
+                <div class="col">
+                    <h2><%=link_to recipe_path(public.id), :class => 'title_anchor' do%><%= public.name%><%end%>
+                    </h2>
+                    <p> By: <%= public.user.name %></p>
+                </div>
+                <div class="col">
+                    <p> Total food items : <%= public.recipe_foods.length %></p>
+                  <%if public.recipe_foods.length>0%>
+                  <%
+                  sum = public.recipe_foods.sum { |i| i.quantity * i.food.price }
+                  %>
+                  <p>Total price: <%= sum %></p>
+                  <%else%>
+                  <p> Total price:  <%= 0 %></p>
+                  <%end%>
+                    
+                    <% if can? :destroy, @recipe %>
+                      <p>Not Authorised</p>
+                    <% else %> 
+                      <% if current_user.email == public.user.email%>
+                        <%= button_to 'Remove', recipe_path(public.id), method: :delete, class: "delete_btn" %>
+                      <% else %>
+                        <button disabled>Remove</button>
+                      <% end %>
+                    <% end %>
+                </div>
+            </li>
+        <%end%>
+    <ul>
+</div>
