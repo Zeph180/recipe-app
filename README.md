@@ -94,12 +94,23 @@ To run the project, execute the following command:
 
   rails server
 ```
+### Tests
 
+To run all the project tests, execute the following command:
+
+```
+  bundle exec rspec 
+```
+To run specific  tests, execute the following command:
+```
+  bundle exec rspec spec/directory/file_spec.rb
+
+```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Ambrose kibet**
 
